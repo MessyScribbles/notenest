@@ -10,8 +10,8 @@ A real-time collaborative document editor with live cursors, file viewing, frien
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="400" alt="Dashboard"/>
-  <img src="screenshots/writing.png" width="400" alt="Editor"/>
+    <img src="screenshots/darkmode.png" width="400" alt="Dark mode dashboard"/>
+    <img src="screenshots/darkmodeWRITING.png" width="400" alt="Dark mode editor"/>
 </p>
 
 
@@ -20,21 +20,18 @@ A real-time collaborative document editor with live cursors, file viewing, frien
 
 <p align="center">
   <img src="screenshots/login.png" width="400" alt="Login"/>
-  <img src="screenshots/darkmode.png" width="400" alt="Dark mode dashboard"/>
-  <img src="screenshots/darkmodeWRITING.png" width="400" alt="Dark mode editor"/>
+  <img src="screenshots/dashboard.png" width="400" alt="Dashboard"/>
+  <img src="screenshots/writing.png" width="400" alt="Editor"/>
 </p>
 </details>
 
 ## Features
 
 **Editor**
-- Live co-editing with named, colored remote cursors
 - Page settings, find and replace, outline panel, tables
-- Insert images from local storage
 
 **Collaboration**
-- Real-time sync with Yjs (CRDT) through Hocuspocus
-- Roles per note: owner, editor, viewer (read-only)
+- Roles per note: owner, editor
 
 **Files**
 - View and import TXT, PDF and DOCX files
@@ -42,7 +39,7 @@ A real-time collaborative document editor with live cursors, file viewing, frien
 **Social and productivity**
 - Friend requests by email, with live notifications
 - 1-to-1 chat with typing indicator and presence
-- Task list and study streak
+- Task list
 - Dark mode and a built-in music player
 
 ## Tech stack
