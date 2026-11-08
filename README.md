@@ -10,8 +10,8 @@ A real-time collaborative document editor with live cursors, file viewing, frien
 ## Screenshots
 
 <p align="center">
-    <img src="screenshots/darkmode.png" width="400" alt="Dark mode dashboard"/>
-    <img src="screenshots/dashboard.png" width="400" alt="Dashboard"/>
+    <img src="screenshots/darkmode.png" width="600" alt="Dark mode dashboard"/>
+    <img src="screenshots/dashboard.png" width="600" alt="Dashboard"/>
 </p>
 
 
