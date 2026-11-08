@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id               String                    @id @default(uuid())
+  email            String                    @unique
+  username         String                    @unique
+  passwordHash     String
+  displayName      String
+  avatarUrl        String?
+  bio              String?
+  lastLoginAt      DateTime?
+  lastSeenAt       DateTime?
+  currentStreak    Int                       @default(0)
+  lastEditAt       DateTime?
+  collaborations   Collaboration[]
+  tasks            Task[]
+  
+  sentRequests     Friendship[]              @relation("Requester")
+  receivedRequests Friendship[]              @relation("Addressee")
+  messages         Message[]
+  conversations    ConversationParticipant[]
+}
+
+model Task {
+  id        String    @id @default(uuid())
+  userId    String
+  text      String
+  completed Boolean   @default(false)
+  dueDate   DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Note {
+  id            String          @id @default(uuid())
+  title         String          @default("Untitled document")
+  crdtData      Bytes?          
+  tags          String[]        @default([])
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  collaborators Collaboration[]
+  files         File[]
+}
+
+model Collaboration {
+  userId     String
+  noteId     String
+  role       String 
+  isFavorite Boolean @default(false)
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note       Note    @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  @@id([userId, noteId])
+}
+
+model File {
+  id          String   @id @default(uuid())
+  noteId      String
+  filename    String
+  mimeType    String
+  storageKey  String
+  sizeBytes   Int
+  uploaderId  String
+  createdAt   DateTime @default(now())
+  note        Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+}
+
+model Friendship {
+  id          String   @id @default(uuid())
+  requesterId String
+  addresseeId String
+  status      String   // PENDING, ACCEPTED, DECLINED, BLOCKED
+  createdAt   DateTime @default(now())
+  
+  requester   User     @relation("Requester", fields: [requesterId], references: [id], onDelete: Cascade)
+  addressee   User     @relation("Addressee", fields: [addresseeId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, addresseeId]) // Strict unique pair constraint
+}
+
+model Conversation {
+  id           String                    @id @default(uuid())
+  createdAt    DateTime                  @default(now())
+  updatedAt    DateTime                  @updatedAt
+  participants ConversationParticipant[]
+  messages     Message[]
+}
+
+model ConversationParticipant {
+  conversationId String
+  userId         String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([conversationId, userId])
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String
+  senderId       String
+  content        String       @db.VarChar(2000)
+  createdAt      DateTime     @default(now())
+  readAt         DateTime?
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+}

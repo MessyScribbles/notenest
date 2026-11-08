@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-cream: #FDFCF8;
+  --surface-white: #FFFFFF;
+  --primary-dark: #1E3F2B;
+  --text-muted: #6B7C73;
+  --accent-green: #2A5A3D;
+  --accent-light: #E9EFEA;
+  --border-light: #E5EBE7;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+}
+
+html.dark {
+  --bg-cream: #0F1411;
+  --surface-white: #161D19;
+  --primary-dark: #E4EBE7;
+  --text-muted: #829489;
+  --accent-green: #488A62;
+  --accent-light: #1D2E24;
+  --border-light: #222E27;
+  --glass-bg: rgba(22, 29, 25, 0.75);
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--primary-dark);
+}

@@ -1,0 +1,65 @@
+/* Document Editor Layout and Print Rules */
+.doc-editor-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f1f5f9;
+}
+
+.page-sheet {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+div[data-page-break] {
+  page-break-after: always;
+  break-after: page;
+  border-bottom: 2px dashed #cbd5e1;
+  margin: 2rem 0;
+}
+
+/* Numbered headings counter logic */
+.numbered-headings-active {
+  counter-reset: h1;
+}
+.numbered-headings-active h1 {
+  counter-reset: h2;
+  counter-increment: h1;
+}
+.numbered-headings-active h1::before {
+  content: counter(h1) ". ";
+}
+.numbered-headings-active h2 {
+  counter-reset: h3;
+  counter-increment: h2;
+}
+.numbered-headings-active h2::before {
+  content: counter(h1) "." counter(h2) ". ";
+}
+.numbered-headings-active h3 {
+  counter-increment: h3;
+}
+.numbered-headings-active h3::before {
+  content: counter(h1) "." counter(h2) "." counter(h3) ". ";
+}
+
+@media print {
+  body {
+    background: white !important;
+  }
+  .doc-header, .toolbar, .footerbar, .outline-panel, .bubble-menu {
+    display: none !important;
+  }
+  .page-sheet {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+  .page-break-indicator {
+    display: none !important;
+  }
+}
