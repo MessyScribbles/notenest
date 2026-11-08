@@ -209,10 +209,6 @@ MIT. See [LICENSE](LICENSE).
 
 ## Author
 
-Built by MessyScribbles.
+Built by MessyScribbles and MoadMoad
 
 - GitHub: [@MessyScribbles](https://github.com/MessyScribbles)
-- LinkedIn: add link
-- Email: add address
-
-I built NoteNest to learn how real-time collaborative editing works with Yjs and WebSockets, and to practice securing a full-stack app.
