@@ -11,7 +11,7 @@ A real-time collaborative document editor with live cursors, file viewing, frien
 
 <p align="center">
     <img src="screenshots/darkmode.png" width="400" alt="Dark mode dashboard"/>
-    <img src="screenshots/darkmodeWRITING.png" width="400" alt="Dark mode editor"/>
+    <img src="screenshots/dashboard.png" width="400" alt="Dashboard"/>
 </p>
 
 
@@ -20,8 +20,8 @@ A real-time collaborative document editor with live cursors, file viewing, frien
 
 <p align="center">
   <img src="screenshots/login.png" width="400" alt="Login"/>
-  <img src="screenshots/dashboard.png" width="400" alt="Dashboard"/>
   <img src="screenshots/writing.png" width="400" alt="Editor"/>
+  <img src="screenshots/darkmodeWRITING.png" width="400" alt="Dark mode editor"/>
 </p>
 </details>
 
