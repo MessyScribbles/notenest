@@ -1,6 +1,6 @@
 # NoteNest
 
-A real-time collaborative document editor with live cursors, file viewing, friends, direct chat. Built as a student project with React, Node.js, Yjs, and PostgreSQL.
+Document editor with live cursors, file viewing, friends, direct chat. Built as a student project with React, Node.js, Yjs, and PostgreSQL.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-24-green.svg)](https://nodejs.org/)
